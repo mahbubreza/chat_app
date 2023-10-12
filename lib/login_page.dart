@@ -39,6 +39,7 @@ class LoginPage extends StatelessWidget {
               child: FlutterLogo(),
               padding: EdgeInsets.all(30.0),
             ),
+            SizedBox(),
           ],
         ),
       ),
