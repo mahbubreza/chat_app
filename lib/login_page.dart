@@ -14,33 +14,32 @@ class LoginPage extends StatelessWidget {
             print('button clicked');
           },
         ),
-        body: Column(
-          children: <Widget>[
-            Text(
-              "Let's Sign you in!",
-              style: TextStyle(
-                fontSize: 30.0,
-                fontWeight: FontWeight.bold,
-                color: Colors.brown,
+        body: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: <Widget>[
+              Text(
+                "Let's Sign you in!",
+                style: TextStyle(
+                  fontSize: 30.0,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.brown,
+                ),
               ),
-            ),
-            Text(
-              "Welcome back! \n You\'ve been missed.",
-              style: TextStyle(
-                fontSize: 20.0,
-                fontWeight: FontWeight.bold,
-                color: Colors.green,
+              Text(
+                "Welcome back! \n You\'ve been missed.",
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  fontSize: 20.0,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.green,
+                ),
               ),
-            ),
-            Image.asset("assets/mahbub.jpg"),
-            Container(
-              height: 150,
-              width: 150,
-              child: FlutterLogo(),
-              padding: EdgeInsets.all(30.0),
-            ),
-            SizedBox(),
-          ],
+              Image.asset("assets/spider.jpg"),
+
+            ],
+          ),
         ),
       ),
     );

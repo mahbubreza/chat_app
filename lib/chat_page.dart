@@ -1,3 +1,5 @@
+import 'package:chat_app/widgets/chat_bubble.dart';
+import 'package:chat_app/widgets/chat_input.dart';
 import 'package:flutter/material.dart';
 
 class ChatPage extends StatelessWidget {
@@ -14,105 +16,27 @@ class ChatPage extends StatelessWidget {
           }, icon: Icon(Icons.logout))
         ],
       ),
-      body: ListView(
+      body: Column(
         children: [
-          Container(
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              children: <Widget>[
-                Text(
-                  'Hi, this is your message! ',
-                  style: TextStyle(
-                    fontSize: 20.0,
-                  ),
-                ),
-                Image.asset("assets/mahbub.jpg"),
+          Expanded(
+            child: ListView.builder(
+                itemCount: 10,
+                itemBuilder: (context, index){
+                  return ChatBubble(
+                      alignment: index%2==0?Alignment.centerLeft:Alignment.centerRight,
+                      message: "First Message",
+                  );
+            }),
+            /*child: ListView(
+              children: [
+                ChatBubble(alignment: Alignment.centerLeft, message: "First Message"),
+                ChatBubble(alignment: Alignment.centerRight, message: "Second  Message"),
+                ChatBubble(alignment: Alignment.centerRight, message: "ThirdS Message"),
+
               ],
-            ),
-            padding: EdgeInsets.all(24.0),
-            margin: EdgeInsets.all(50.0),
-            decoration: BoxDecoration(
-              color: Colors.grey,
-              borderRadius: BorderRadius.only(
-                topLeft: Radius.circular(12.0),
-                topRight: Radius.circular(12.0),
-                bottomLeft: Radius.circular(12.0)
-              )
-            ),
+            ),*/
           ),
-          Container(
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              children: <Widget>[
-                Text(
-                  'Hi, this is your message! ',
-                  style: TextStyle(
-                    fontSize: 20.0,
-                  ),
-                ),
-                Image.asset("assets/mahbub.jpg"),
-              ],
-            ),
-            padding: EdgeInsets.all(24.0),
-            margin: EdgeInsets.all(50.0),
-            decoration: BoxDecoration(
-                color: Colors.grey,
-                borderRadius: BorderRadius.only(
-                    topLeft: Radius.circular(12.0),
-                    topRight: Radius.circular(12.0),
-                    bottomLeft: Radius.circular(12.0)
-                )
-            ),
-          ),
-          Container(
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              children: <Widget>[
-                Text(
-                  'Hi, this is your message! ',
-                  style: TextStyle(
-                    fontSize: 20.0,
-                  ),
-                ),
-                Image.asset("assets/mahbub.jpg"),
-              ],
-            ),
-            padding: EdgeInsets.all(24.0),
-            margin: EdgeInsets.all(50.0),
-            decoration: BoxDecoration(
-                color: Colors.grey,
-                borderRadius: BorderRadius.only(
-                    topLeft: Radius.circular(12.0),
-                    topRight: Radius.circular(12.0),
-                    bottomLeft: Radius.circular(12.0)
-                )
-            ),
-          ),
-          Container(
-            height: 100,
-            child: Row(
-              children: <Widget>[
-                IconButton(onPressed: (){},
-                    icon: Icon(
-                      Icons.add,
-                      color: Colors.white,
-                    )
-                ),
-                IconButton(onPressed: (){},
-                    icon: Icon(
-                      Icons.send,
-                      color: Colors.white,
-                    )
-                ),
-              ],
-            ),
-            decoration: BoxDecoration(
-              color: Colors.black,
-              borderRadius: BorderRadius.only(
-                topLeft: Radius.circular(20.0),
-              )
-            ),
-          ),
+          ChatInput(),
         ],
       ),
     );
