@@ -28,9 +28,7 @@ class ChatPage extends StatelessWidget {
                   );
             }),
             /*child: ListView(
-              children: [
-                ChatBubble(alignment: Alignment.centerLeft, message: "First Message"),
-                ChatBubble(alignment: Alignment.centerRight, message: "Second  Message"),
+        ChatBubble(alignment: Alignment.centerRight, message: "Second  Message"),
                 ChatBubble(alignment: Alignment.centerRight, message: "ThirdS Message"),
 
               ],
