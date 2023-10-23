@@ -7,12 +7,14 @@ class ChatPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final userName = ModalRoute.of(context)!.settings.arguments as String;
     return Scaffold(
       appBar: AppBar(
-        title: Text('Hi Mahbub!'),
+        title: Text('Hi $userName!'),
         actions: [
           IconButton(onPressed: (){
-            print('button pressed!');
+            //print('button pressed!');
+            Navigator.pop(context);
           }, icon: Icon(Icons.logout))
         ],
       ),
