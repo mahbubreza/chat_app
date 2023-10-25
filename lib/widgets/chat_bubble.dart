@@ -10,6 +10,7 @@ class ChatBubble extends StatelessWidget {
     return Align(
       alignment: alignment,
       child: Container(
+        constraints: BoxConstraints(maxWidth: MediaQuery.of(context).size.width*0.5),
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: <Widget>[
@@ -20,7 +21,7 @@ class ChatBubble extends StatelessWidget {
               ),
             ),
             if(entity.imageUrl!=null)
-              Image.asset("${entity.imageUrl}"),
+              Image.network("${entity.imageUrl}"),
           ],
         ),
         padding: EdgeInsets.all(24.0),

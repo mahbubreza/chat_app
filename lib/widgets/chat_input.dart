@@ -30,7 +30,7 @@ class ChatInput extends StatelessWidget {
             textCapitalization: TextCapitalization.sentences,
             style: TextStyle(color: Colors.white),
             decoration: InputDecoration(
-              hintText: "Type your password",
+              hintText: "Type your message",
               hintStyle: TextStyle(color: Colors.blueGrey),
               border: InputBorder.none,
             ),
