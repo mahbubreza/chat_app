@@ -1,5 +1,7 @@
 import 'dart:convert';
-
+import 'package:chat_app/modals/image_model.dart';
+import 'package:chat_app/repo/image_repository.dart';
+import 'package:http/http.dart' as http;
 import 'package:chat_app/modals/chat_message_entity.dart';
 import 'package:chat_app/widgets/chat_bubble.dart';
 import 'package:chat_app/widgets/chat_input.dart';
@@ -37,6 +39,8 @@ class _ChatPageState extends State<ChatPage> {
 
     });
   }
+
+  final ImageRepository _imageRepo = ImageRepository();
 
   @override
   void initState() {
