@@ -30,7 +30,8 @@ class LoginPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return  Scaffold(
-        body: Center(
+      backgroundColor: Colors.white,
+      body: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -53,7 +54,20 @@ class LoginPage extends StatelessWidget {
                   color: Colors.green,
                 ),
               ),
-              Expanded(child: Image.asset("assets/illustration.png",)),
+              verticalSpacing(24),
+              Expanded(
+                child: Container(
+                  height: 200,
+                  width: MediaQuery.of(context).size.width*0.5,
+                  decoration: BoxDecoration(
+                      image: DecorationImage(
+                          fit: BoxFit.fitWidth,
+                          image: AssetImage("assets/illustration.png")),
+                      borderRadius: BorderRadius.circular(24)),
+                ),
+              ),
+              verticalSpacing(24),
+              //Expanded(child: Image.asset("assets/illustration.png",)),
               Form(
                 key: _formkey,
                 child: Column(

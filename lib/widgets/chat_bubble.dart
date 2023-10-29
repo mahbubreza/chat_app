@@ -7,10 +7,13 @@ class ChatBubble extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
+    bool isAuthor = entity.author.userName == "mahbub";
+
     return Align(
       alignment: alignment,
       child: Container(
-        constraints: BoxConstraints(maxWidth: MediaQuery.of(context).size.width*0.5),
+        constraints: BoxConstraints(maxWidth: MediaQuery.of(context).size.width*0.6),
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: <Widget>[
@@ -18,16 +21,23 @@ class ChatBubble extends StatelessWidget {
               '${entity.text}',
               style: TextStyle(
                 fontSize: 20.0,
+                color: Colors.white,
               ),
             ),
             if(entity.imageUrl!=null)
-              Image.network("${entity.imageUrl}"),
+              Container(
+                height: 200,
+                width: MediaQuery.of(context).size.width*0.5,
+                decoration: BoxDecoration(
+                    image: DecorationImage(image: NetworkImage(entity.imageUrl!)),
+                    borderRadius: BorderRadius.circular(12)),
+              ),
           ],
         ),
         padding: EdgeInsets.all(24.0),
-        margin: EdgeInsets.all(50.0),
+        margin: EdgeInsets.all(10.0),
         decoration: BoxDecoration(
-            color: Colors.grey,
+            color: isAuthor? Theme.of(context).primaryColor: Colors.black87,
             borderRadius: BorderRadius.only(
                 topLeft: Radius.circular(12.0),
                 topRight: Radius.circular(12.0),

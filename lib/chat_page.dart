@@ -53,6 +53,7 @@ class _ChatPageState extends State<ChatPage> {
   Widget build(BuildContext context) {
     final userName = ModalRoute.of(context)!.settings.arguments as String;
     return Scaffold(
+      backgroundColor: Colors.white,
       appBar: AppBar(
         title: Text('Hi $userName!'),
         actions: [
