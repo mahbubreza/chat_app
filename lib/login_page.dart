@@ -1,6 +1,8 @@
+import 'package:chat_app/services/auth_service.dart';
 import 'package:chat_app/utils/spaces.dart';
 import 'package:chat_app/widgets/login_text_field.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:social_media_buttons/social_media_buttons.dart';
 
@@ -10,13 +12,12 @@ class LoginPage extends StatelessWidget {
 
   final _formkey = GlobalKey<FormState>();
 
-  void loginUser(context){
+  Future<void> loginUser(BuildContext context) async{
     /**/
     if(_formkey.currentState!=null && _formkey.currentState!.validate()){
-      //print(userNameController.text);
-      //print(userPasswordController.text);
+      await context.read<AuthService>().loginUser(userNameController.text);
       Navigator.pushNamed(context, '/chat', arguments: '${userNameController.text}');
-      //print("Login Successful!");
+
     }else {
       print('not successful');
     }
@@ -97,8 +98,8 @@ class LoginPage extends StatelessWidget {
                 ),
               ),
               ElevatedButton(
-                  onPressed: (){
-                    loginUser(context);
+                  onPressed: () async{
+                    await loginUser(context);
                   },
                   child: Text(
                     'Login',
